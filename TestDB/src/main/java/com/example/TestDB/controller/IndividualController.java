@@ -19,8 +19,8 @@ package com.example.TestDB.controller;
 
     	@Autowired
     	IndividualService individualService;
-    	IndividualDTO individualDTO = new IndividualDTO("ghad@gmail.com","0551084317","lqa","1092590","1098028237","Ghaa","Dkhkii","aljmeen",true,"snle","seang",
-                Timestamp.valueOf("2018-06-16 00:37:19.1236789"),"CS","RLL","Prongg");
+    	IndividualDTO individualDTO = new IndividualDTO("ghadahDkhail@gmail.com","0502225926","alnarjes","50505","1095027437","Ghadah","Dkhail","aljbreen",true,"single","Reading",
+                Timestamp.valueOf("2021-02-20 00:00:00.123789"),"CS","URLL","Programming");
 
   @RequestMapping("/crs")
   public String create() {
