@@ -1,20 +1,20 @@
 package com.example.TestDB.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import com.example.TestDB.model.Company;
 import com.example.TestDB.model.Education;
 import com.example.TestDB.model.Individual;
 
 public class ExperienceDTO {
-	        private long Exp_id;
+	        private String Exp_id;
 	        private Individual NationalID;
 	        private Education Eduid; 
 		    private Company cr ;
 		    private String e_position;
 		    private String name_company;
-		    private Timestamp s_date;
-		    private Timestamp e_date;
+		    private Date s_date;
+		    private Date e_date;
 		    private String add_by;
 		    private String ref_name;
 		    private String ref_email;
@@ -25,8 +25,8 @@ public class ExperienceDTO {
 				super();
 			
 			}
-			public ExperienceDTO(long Exp_id, Individual NationalID, Education Eduid, Company cr, String e_position,
-					String name_company, Timestamp s_date, Timestamp e_date, String add_by, String ref_name,
+			public ExperienceDTO(String Exp_id, Individual NationalID, Education Eduid, Company cr, String e_position,
+					String name_company, Date s_date, Date e_date, String add_by, String ref_name,
 					String ref_email) {
 				super();
 				this.Exp_id = Exp_id;
@@ -41,10 +41,10 @@ public class ExperienceDTO {
 				this.ref_name = ref_name;
 				this.ref_email = ref_email;
 			}
-			public long getExp_id() {
+			public String getExp_id() {
 				return Exp_id;
 			}
-			public void setExp_id(long exp_id) {
+			public void setExp_id(String exp_id) {
 				Exp_id = exp_id;
 			}
 			public Individual getNationalID() {
@@ -77,16 +77,16 @@ public class ExperienceDTO {
 			public void setName_company(String name_company) {
 				this.name_company = name_company;
 			}
-			public Timestamp getS_date() {
+			public Date getS_date() {
 				return s_date;
 			}
-			public void setS_date(Timestamp s_date) {
+			public void setS_date(Date s_date) {
 				this.s_date = s_date;
 			}
-			public Timestamp getE_date() {
+			public Date getE_date() {
 				return e_date;
 			}
-			public void setE_date(Timestamp e_date) {
+			public void setE_date(Date e_date) {
 				this.e_date = e_date;
 			}
 			public String getAdd_by() {

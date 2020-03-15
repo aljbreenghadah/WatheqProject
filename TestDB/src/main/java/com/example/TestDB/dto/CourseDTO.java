@@ -1,9 +1,5 @@
 package com.example.TestDB.dto;
-
-import java.sql.Timestamp;
-
-//import javax.persistence.Column;
-
+import java.util.Date;
 import com.example.TestDB.model.Company;
 import com.example.TestDB.model.Education;
 import com.example.TestDB.model.Individual;
@@ -17,8 +13,8 @@ public class CourseDTO {
 		   private String addedBy;
 		   private String nameInstittion;
 		   private String courseAttch;
-			   private Timestamp StartDate;
-			   private Timestamp EndDate;
+			   private Date StartDate;
+			   private Date EndDate;
 			   
 	  
 	  
@@ -31,7 +27,7 @@ public class CourseDTO {
 
 
 	public CourseDTO(String courseID, Individual nationalID, Education eduid, Company cr, String nameCourse,
-			String addedBy, String nameInstittion, String courseAttch, Timestamp startDate, Timestamp endDate) {
+			String addedBy, String nameInstittion, String courseAttch, Date startDate, Date endDate) {
 		super();
 		this.courseID = courseID;
 		NationalID = nationalID;
@@ -160,28 +156,28 @@ public class CourseDTO {
 
 
 
-	public Timestamp getStartDate() {
+	public Date getStartDate() {
 		return StartDate;
 	}
 
 
 
 
-	public void setStartDate(Timestamp startDate) {
+	public void setStartDate(Date startDate) {
 		StartDate = startDate;
 	}
 
 
 
 
-	public Timestamp getEndDate() {
+	public Date getEndDate() {
 		return EndDate;
 	}
 
 
 
 
-	public void setEndDate(Timestamp endDate) {
+	public void setEndDate(Date endDate) {
 		EndDate = endDate;
 	}
 		

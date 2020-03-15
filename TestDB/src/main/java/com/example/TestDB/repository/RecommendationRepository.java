@@ -1,6 +1,6 @@
 package com.example.TestDB.repository;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -14,14 +14,14 @@ import  com.example.TestDB.model.Recommendation;
 
 @Repository
 @Transactional
-public interface RecommendationRepository extends CrudRepository<Recommendation, Long>{
+public interface RecommendationRepository extends CrudRepository<Recommendation, String>{
 	@Modifying
 	@Query("UPDATE Recommendation recommendation SET recommendation.Reco_From =:Reco_From WHERE  recommendation.Reco_id = :Reco_id ")
 	void updateReco_From(@Param("Reco_id") String  Reco_id,@Param("Reco_From") String Reco_From );
 	
 	@Modifying
 	@Query("UPDATE Recommendation recommendation SET recommendation.Reco_Date =:Reco_Date WHERE  recommendation.Reco_id = :Reco_id ")
-	void updateReco_Date(@Param("Reco_id") String  Reco_id,@Param("Reco_Date") Timestamp Reco_Date );
+	void updateReco_Date(@Param("Reco_id") String  Reco_id,@Param("Reco_Date") Date Reco_Date );
 	
 	@Modifying
 	@Query("UPDATE Recommendation recommendation SET recommendation.Reco_AddBy =:Reco_AddBy WHERE  recommendation.Reco_id = :Reco_id ")

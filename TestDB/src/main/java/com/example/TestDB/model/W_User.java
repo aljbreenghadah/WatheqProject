@@ -12,14 +12,17 @@ package com.example.TestDB.model;
      //  import javax.validation.constraints.Min;
      import javax.validation.constraints.NotNull;
      import javax.validation.constraints.Pattern;
-     import javax.validation.constraints.Email;
+
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.Email;
     //import lombok.AllArgsConstructor;
 
     /*@Entity
     @Table(name = "W_user")*/
 
 	@MappedSuperclass
-	
+	@NoArgsConstructor
 	public class W_User implements Serializable {
 	
     	private static final long serialVersionUID = -3009157732242241606L;
@@ -43,18 +46,13 @@ package com.example.TestDB.model;
 	  
 	  
 	  @Column(name = "Address")
+	  @NotNull(message = " the address cannot be Empty ")
 	   private String Address;
 	  
 	  @Column(name = "Password",nullable = false)
 	  @NotNull(message = " Password cannot be Empty ")
 	   private String Password;
 	  
-
-		public W_User() {
-			super();
-		}
-
-
 
 
 

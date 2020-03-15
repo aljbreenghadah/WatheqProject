@@ -1,6 +1,10 @@
 package com.example.TestDB.dto;
 
-import java.sql.Timestamp;
+
+
+
+
+import java.util.Date;
 
 import com.example.TestDB.model.Company;
 import com.example.TestDB.model.Education;
@@ -12,7 +16,7 @@ public class RecommendationDTO {
 		private Education Eduid; 
 		private Company cr ;
 		 private String Reco_From;
-		  private Timestamp Reco_Date;
+		  private Date Reco_Date;
 		  private String Reco_AddBy;
 		  private String Reco_Attach;
 		  private String Reco_Institute_Name;
@@ -31,7 +35,7 @@ public class RecommendationDTO {
 			
 		}
 		public RecommendationDTO(long Reco_id, Individual NationalID, Education Eduid, Company cr, String Reco_From,
-				Timestamp Reco_Date, String Reco_AddBy, String Reco_Attach, String Reco_Institute_Name) {
+				Date Reco_Date, String Reco_AddBy, String Reco_Attach, String Reco_Institute_Name) {
 			super();
 			this.Reco_id = Reco_id;
 			this.NationalID = NationalID;
@@ -73,10 +77,10 @@ public class RecommendationDTO {
 		public void setReco_From(String reco_From) {
 			Reco_From = reco_From;
 		}
-		public Timestamp getReco_Date() {
+		public Date getReco_Date() {
 			return Reco_Date;
 		}
-		public void setReco_Date(Timestamp reco_Date) {
+		public void setReco_Date(Date reco_Date) {
 			Reco_Date = reco_Date;
 		}
 		public String getReco_AddBy() {

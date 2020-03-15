@@ -12,11 +12,11 @@ import  com.example.TestDB.model.Certification;
 
 @Repository
 @Transactional
-public interface CertificationRepository extends CrudRepository<Certification, Long>{
+public interface CertificationRepository extends CrudRepository<Certification, String>{
 
 	@Modifying
-	@Query("UPDATE Certification certification SET certification.UNI_NAME =:UNI_NAME WHERE certification.CERT_id = :CERT_id ")
-	void updateUNI_NAME(@Param("CERT_id") String CERT_id,@Param("UNI_NAME") String UNI_NAME );
+	@Query("UPDATE Certification certification SET certification.EDU_NAME =:EDU_NAME WHERE certification.CERT_id = :CERT_id ")
+	void updateUNI_NAME(@Param("CERT_id") String CERT_id,@Param("EDU_NAME") String EDU_NAME );
 	
 	@Modifying
 	@Query("UPDATE Certification certification SET certification.ADDBY =:ADDBY WHERE certification.CERT_id = :CERT_id ")

@@ -1,12 +1,12 @@
 package com.example.TestDB.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class CompanyDTO  extends W_UserDTO {
 	  private String cr;
 	  private String CompanyName;
-	  private Timestamp StartDate;
-	  private Timestamp EndDate;
+	  private Date StartDate;
+	  private Date EndDate;
 	  
 	  
 	  
@@ -19,7 +19,7 @@ public class CompanyDTO  extends W_UserDTO {
 	}
 
 	public CompanyDTO(String Email, String PhoneNumber, String Address, String Password, String cr, String CompanyName,
-			Timestamp StartDate, Timestamp EndDate) {
+			Date StartDate, Date EndDate) {
 		super(Email, PhoneNumber, Address, Password);
 		this.cr = cr;
 		this.CompanyName = CompanyName;
@@ -40,16 +40,16 @@ public class CompanyDTO  extends W_UserDTO {
 	public void setCompanyName(String companyName) {
 		CompanyName = companyName;
 	}
-	public Timestamp getStartDate() {
+	public Date getStartDate() {
 		return StartDate;
 	}
-	public void setStartDate(Timestamp startDate) {
+	public void setStartDate(Date startDate) {
 		StartDate = startDate;
 	}
-	public Timestamp getEndDate() {
+	public Date getEndDate() {
 		return EndDate;
 	}
-	public void setEndDate(Timestamp endDate) {
+	public void setEndDate(Date endDate) {
 		EndDate = endDate;
 	}
 	  

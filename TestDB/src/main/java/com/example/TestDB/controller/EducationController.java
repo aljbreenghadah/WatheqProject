@@ -1,26 +1,35 @@
 package com.example.TestDB.controller;
 
-	//import org.springframework.beans.factory.annotation.Autowired;
-	//import org.springframework.web.bind.annotation.RequestMapping;
-	import org.springframework.web.bind.annotation.RestController;
-	//import com.example.TestDB.model.Education;
-	//import com.example.TestDB.repository.EducationRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.TestDB.dto.EducationDTO;
+import com.example.TestDB.service.EducationService;
 
 
-	@RestController
+@RestController
 
 	public class EducationController {
 
-	     //  @Autowired 
-	     //  EducationRepository andrepository;
+	@Autowired
+	EducationService educationService;
+	EducationDTO educationDTO = new EducationDTO("aljbreenghaah@gmail.com","055123421","alnajes","1245","99","pnnu");
 
-	    //   @RequestMapping("Education save")
-	    //   public String process() {
-	            
-	        //      andrepository.save(new Education ("435005844","Pnu univercity" ));
+@RequestMapping("/creEducation")
+public String create() {
 
-	         //     return "Education Done";
+	educationService.createEducationDTO( educationDTO);
+     return "Create Done"; 
+}
+@RequestMapping("/updateEDU_NAMEEducation")
+public EducationDTO updateEDU_NAME() throws Exception {
+	  return  educationService.updateEDU_NAMEEducationDTO("1","uyt");
+}
 
-	    //   }
-	}
 
+
+	
+
+}

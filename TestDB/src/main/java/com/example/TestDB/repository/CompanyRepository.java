@@ -1,7 +1,5 @@
 package com.example.TestDB.repository;
 
-import java.sql.Timestamp;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -23,11 +21,11 @@ public interface CompanyRepository extends CrudRepository<Company,String>{
 	
 	@Modifying
 	@Query("UPDATE Company company SET company.StartDate =:StartDate WHERE company.cr = :cr ")
-	void updateStartDate(@Param("cr") String cr,@Param("StartDate") Timestamp StartDate );
+	void updateStartDate(@Param("cr") String cr,@Param("StartDate") String startDate );
 	
 	@Modifying
 	@Query("UPDATE Company company SET company.EndDate =:EndDate WHERE company.cr = :cr ")
-	void updateEndDate(@Param("cr") String cr,@Param("EndDate") Timestamp EndDate );
+	void updateEndDate(@Param("cr") String cr,@Param("EndDate") String endDate );
 	
 	@Modifying
 	@Query("UPDATE Company company SET company.Email =:Email WHERE company.cr = :cr ")

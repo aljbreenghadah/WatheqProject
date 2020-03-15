@@ -1,5 +1,6 @@
 package com.example.TestDB.dto;
-import java.sql.Timestamp;
+
+import java.util.Date;
 
 //import javax.persistence.Column;
 
@@ -12,7 +13,7 @@ public class IndividualDTO extends  W_UserDTO {
 	  private Boolean Gender;
 	  private String Status;
 	  private String Skills;
-	  private Timestamp DOB;
+	  private Date DOB;
 	  private String MAJOR;
 	  private String Attachments;
 	  private String JOP;
@@ -30,7 +31,7 @@ public class IndividualDTO extends  W_UserDTO {
 
 	public IndividualDTO(String Email, String PhoneNumber, String Address, String Password, String NationalID,
 			String Firstname, String MName, String lastname, Boolean Gender, String Status, String Skills,
-			Timestamp DOB, String MAJOR, String Attachments, String JOP) {
+			Date DOB, String MAJOR, String Attachments, String JOP) {
 		super(Email, PhoneNumber, Address, Password);
 		this.NationalID = NationalID;
 		this.firstname = Firstname;
@@ -146,14 +147,14 @@ public class IndividualDTO extends  W_UserDTO {
 
 
 
-	public Timestamp getDOB() {
+	public Date getDOB() {
 		return DOB;
 	}
 
 
 
 
-	public void setDOB(Timestamp dOB) {
+	public void setDOB(Date dOB) {
 		DOB = dOB;
 	}
 

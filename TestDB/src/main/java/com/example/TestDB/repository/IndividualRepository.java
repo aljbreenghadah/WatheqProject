@@ -1,6 +1,6 @@
 package com.example.TestDB.repository;
 
-import java.security.Timestamp;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -32,7 +32,7 @@ public interface IndividualRepository extends CrudRepository <Individual, String
 	void updatelastname(@Param("NationalID") String NationalID,@Param("lastName") String lastName );
 	@Modifying
 	@Query("UPDATE Individual individual SET individual.DOB =:DOB WHERE individual.NationalID = :NationalID ")
-	void updateDOB(@Param("NationalID") String NationalID,@Param("DOB") Timestamp DOB );
+	void updateDOB(@Param("NationalID") String NationalID,@Param("DOB") Date DOB );
 	@Modifying
 	@Query("UPDATE Individual individual SET individual.MAJOR =:MAJOR WHERE individual.NationalID = :NationalID ")
 	void updateMAJOR(@Param("NationalID") String NationalID,@Param("MAJOR") String MAJOR );

@@ -1,21 +1,19 @@
 package com.example.TestDB.model;
-	import java.io.Serializable;
-import java.sql.Timestamp;
-
+import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.FetchType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 //	import javax.persistence.GeneratedValue;
 //	import javax.persistence.GenerationType;
-	import javax.persistence.Id;
-	import javax.persistence.JoinColumn;
-	import javax.persistence.ManyToOne;
-	import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
 import lombok.Builder;
 
 	@Entity
@@ -40,7 +38,6 @@ import lombok.Builder;
 		@JoinColumn(name="Eduid",nullable=false)
 		private Education Eduid; 
 
-
 		@ManyToOne(fetch=FetchType.LAZY,optional=false ,    cascade= CascadeType.ALL)
 		@JoinColumn(name="cr",nullable=false)
 		private Company cr ;
@@ -55,7 +52,7 @@ import lombok.Builder;
 		@NotNull(message = " cannot be Empty ")
 	  @Column(name = "Reco_Date", nullable = false)
 		@NotNull(message = "Recommendation Date cannot be Empty ")
-	  private Timestamp Reco_Date;
+	  private Date Reco_Date;
 	  
 	  //User Who added Recommendation 
 	
@@ -81,7 +78,7 @@ import lombok.Builder;
 	  @Builder
 
 	public Recommendation(long Reco_id, Individual NationalID, Education Eduid, Company cr, String Reco_From,
-			Timestamp Reco_Date, String Reco_AddBy, String Reco_Attach, String Reco_Institute_Name) {
+			Date Reco_Date, String Reco_AddBy, String Reco_Attach, String Reco_Institute_Name) {
 		super();
 		this.Reco_id = Reco_id;
 		this.NationalID = NationalID;
@@ -135,11 +132,11 @@ import lombok.Builder;
 		Reco_From = reco_From;
 	}
 
-	public Timestamp getReco_Date() {
+	public Date getReco_Date() {
 		return Reco_Date;
 	}
 
-	public void setReco_Date(Timestamp reco_Date) {
+	public void setReco_Date(Date reco_Date) {
 		Reco_Date = reco_Date;
 	}
 

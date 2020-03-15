@@ -1,10 +1,9 @@
 package com.example.TestDB.model;
 
 	import java.io.Serializable;
-    import java.sql.Timestamp;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+    import java.util.Date;
+    import javax.persistence.CascadeType;
+    import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.FetchType;
 	import javax.persistence.Id;
@@ -14,8 +13,12 @@ import javax.persistence.Column;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Builder;
+import com.example.TestDB.model.Course.CourseBuilder;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+       @NoArgsConstructor
 		@Entity
 		@Table(name = "Certification")
 		public class Certification implements Serializable {
@@ -25,34 +28,37 @@ import lombok.Builder;
 		  @Id
 		  
 		
-		  @Column(name = "CERT_id", nullable = false)
+		  @Column(name = "CERT_id",unique=true, nullable = false)
 			 private String CERT_id;
 		  
-		  @ManyToOne(fetch=FetchType.LAZY,optional=false ,    cascade= CascadeType.ALL)
-	      @JoinColumn(name="NationalID",nullable=false)
-	      private Individual NationalID; 
+		  @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.ALL)
+			@JoinColumn(name = "NationalID")
+			private Individual NationalID;
 		  
-		 
-		  @Column(name = "UNI_NAME", nullable = false)
-		  @NotNull(message = "UNI_NAME cannot be Empty ")
-		  private String UNI_NAME;
-		 
+			@ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+			@JoinColumn(name = "Edu_iD")
+			private Education Edu_iD;
+			
+			@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade=CascadeType.ALL)
+			@JoinColumn(name = "EDU_NAME")
+			private Education EDU_NAME;
+
 		 
 		  @Column(name = "ADDBY", nullable = false)
-		  @NotNull(message = "ADDBY cannot be Empty ")
+		  @NotNull(message = "Should insert who add the certificate ")
 		  private String ADDBY; 
 		  
 		  
 		 
 		  @Column(name = "CERT_DATE", nullable = false)
-		  @NotNull(message = "CERT_DATE cannot be Empty ")
-		 private Timestamp CERT_DATE;
+		  @NotNull(message = "the date of certificate cannot be Empty")
+		 private Date CERT_DATE;
 		  
 		  
 		
 		  @Column(name = "GPA", nullable = false)
 		  @NotNull(message = "GPA cannot be Empty ")
-			 private double GPA ;
+			 private Double GPA ;
 		  
 		  
 		
@@ -72,25 +78,9 @@ import lombok.Builder;
 		  @NotNull(message = "ATTACH cannot be Empty ")
 			 private String ATTACH;
 		  
-		  public Certification() {
-		  }
-		  
-		  @Builder
 
+	
 
-		public Certification(String CERT_id, Individual NationalID, String UNI_NAME, String ADDBY, Timestamp CERT_DATE,
-				double GPA, String DEGREE, String MAJOR, String ATTACH) {
-			super();
-			this.CERT_id = CERT_id;
-			this.NationalID = NationalID;
-			this.UNI_NAME = UNI_NAME;
-			this.ADDBY = ADDBY;
-			this.CERT_DATE = CERT_DATE;
-			this.GPA = GPA;
-			this.DEGREE = DEGREE;
-			this.MAJOR = MAJOR;
-			this.ATTACH = ATTACH;
-		}
 
 
 		public String getCERT_id() {
@@ -113,15 +103,7 @@ import lombok.Builder;
 		}
 
 
-		public String getUNI_NAME() {
-			return UNI_NAME;
-		}
-
-
-		public void setUNI_NAME(String uNI_NAME) {
-			UNI_NAME = uNI_NAME;
-		}
-
+		
 
 		public String getADDBY() {
 			return ADDBY;
@@ -133,12 +115,12 @@ import lombok.Builder;
 		}
 
 
-		public Timestamp getCERT_DATE() {
+		public Date getCERT_DATE() {
 			return CERT_DATE;
 		}
 
 
-		public void setCERT_DATE(Timestamp cERT_DATE) {
+		public void setCERT_DATE(Date cERT_DATE) {
 			CERT_DATE = cERT_DATE;
 		}
 
@@ -148,7 +130,7 @@ import lombok.Builder;
 		}
 
 
-		public void setGPA(double gPA) {
+		public void setGPA(Double gPA) {
 			GPA = gPA;
 		}
 
@@ -185,9 +167,55 @@ import lombok.Builder;
 
 		@Override
 		public String toString() {
-			return "Certification [CERT_id=" + CERT_id + ", NationalID=" + NationalID + ", UNI_NAME=" + UNI_NAME
+			return "Certification [CERT_id=" + CERT_id + ", NationalID=" + NationalID 
 					+ ", ADDBY=" + ADDBY + ", CERT_DATE=" + CERT_DATE + ", GPA=" + GPA + ", DEGREE=" + DEGREE
 					+ ", MAJOR=" + MAJOR + ", ATTACH=" + ATTACH + ", toString()=" + super.toString() + "]";
+		}
+
+
+		public Education getEdu_iD() {
+			return Edu_iD;
+		}
+
+
+		public void setEdu_iD(Education edu_iD) {
+			Edu_iD = edu_iD;
+		}
+
+
+		public Education getEDU_NAME() {
+			return EDU_NAME;
+		}
+
+
+		public void setEDU_NAME(Education eDU_NAME) {
+			EDU_NAME = eDU_NAME;
+		}
+
+
+		public void setGPA(double gPA) {
+			GPA = gPA;
+		}
+
+		 @Builder
+		public Certification(String cERT_id, Individual nationalID, Education edu_iD, Education eDU_NAME,
+				@NotNull(message = "Should insert who add the certificate ") String aDDBY,
+				@NotNull(message = "the date of certificate cannot be Empty") Date cERT_DATE,
+				@NotNull(message = "GPA cannot be Empty ") Double gPA,
+				@NotNull(message = "DEGREE cannot be Empty ") String dEGREE,
+				@NotNull(message = "MAJOR cannot be Empty ") String mAJOR,
+				@NotNull(message = "ATTACH cannot be Empty ") String aTTACH) {
+			super();
+			CERT_id = cERT_id;
+			NationalID = nationalID;
+			Edu_iD = edu_iD;
+			EDU_NAME = eDU_NAME;
+			ADDBY = aDDBY;
+			CERT_DATE = cERT_DATE;
+			GPA = gPA;
+			DEGREE = dEGREE;
+			MAJOR = mAJOR;
+			ATTACH = aTTACH;
 		}
 
 

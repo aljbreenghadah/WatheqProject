@@ -1,10 +1,8 @@
 package com.example.TestDB.model;
 
 	import java.io.Serializable;
-    import java.sql.Timestamp;
-
-
-	import javax.persistence.Column;
+    import java.util.Date;
+    import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.FetchType;
 	//import javax.persistence.GeneratedValue;
@@ -17,7 +15,8 @@ package com.example.TestDB.model;
     import javax.validation.constraints.Min;
     import javax.validation.constraints.NotNull;
     import lombok.Builder;
-
+import lombok.NoArgsConstructor;
+    @NoArgsConstructor
 	@Entity
 	@Table(name = "Experience")
 	public class Experience implements Serializable {
@@ -29,8 +28,8 @@ package com.example.TestDB.model;
 	         	  @Max(value = 10, message = "Nationa should not be greater than 150")
 	                @Id
 	            //    @GeneratedValue(strategy = GenerationType.AUTO)
-	          	  @NotNull(message = " cannot be Empty ")
-	                private long Exp_id;
+	          
+	                private String Exp_id;
 	                
 	                @ManyToOne(fetch=FetchType.LAZY,optional=false)
 	                @JoinColumn(name="NationalID",nullable=false)
@@ -45,46 +44,49 @@ package com.example.TestDB.model;
 	        		@JoinColumn(name="cr",nullable=false)
 	        		private Company cr ;
 
-	        		  @NotNull(message = " cannot be Empty ")
+	        		 
 	                @Column(name = "e_position", nullable = false)
+	                @NotNull(message = "e_position cannot be Empty ")
 	                private String e_position;
 
-	        		  @NotNull(message = " cannot be Empty ")
+	        		
 	                @Column(name = "name_company", nullable = false)
+	                @NotNull(message = "name company cannot be Empty ")
 	                private String name_company;
 
-	        		  @NotNull(message = " cannot be Empty ")
+	        	
 	                @Column(name = "s_date", nullable = false)
-	                private Timestamp s_date;
+	          	  @NotNull(message = " start date cannot be Empty ")
+	                private Date s_date;
 
-	        		  @NotNull(message = " cannot be Empty ")
+	        	
 	                @Column(name = "e_date")
-	                private Timestamp e_date;
+	                @NotNull(message = " End date cannot be Empty ")
+	                private Date e_date;
 
-	        		  @NotNull(message = " cannot be Empty ")
+	        		 
 	                @Column(name = "add_by", nullable = false)
+	                @NotNull(message = " Add by cannot be Empty ")
 	                private String add_by;
 	                
-	        		  @NotNull(message = " cannot be Empty ")
+	        		
 	                @Column(name = "ref_name")
+	                @NotNull(message = " ref_name cannot be Empty ")
 	                private String ref_name;
 	                
-	        		  @NotNull(message = " cannot be Empty ")
+	        		
 	                @Column(name = "ref_email")
+	                @NotNull(message = "ref_email  cannot be Empty ")
 	                private String ref_email;
 	                
 	                
-	                
-	                
-	            	public Experience() {
-						super();
-					}
+	               
 
 					@Builder
 					
 					
-					public Experience(long Exp_id, Individual NationalID, Education Eduid, Company cr,
-							String e_position, String name_company, Timestamp s_date, Timestamp e_date, String add_by,
+					public Experience(String Exp_id, Individual NationalID, Education Eduid, Company cr,
+							String e_position, String name_company, Date s_date, Date e_date, String add_by,
 							String ref_name, String ref_email) {
 						super();
 						this.Exp_id = Exp_id;
@@ -100,11 +102,11 @@ package com.example.TestDB.model;
 						this.ref_email = ref_email;
 					}
 
-					public long getExp_id() {
+					public String getExp_id() {
 						return Exp_id;
 					}
 
-					public void setExp_id(long exp_id) {
+					public void setExp_id(String exp_id) {
 						Exp_id = exp_id;
 					}
 
@@ -132,19 +134,19 @@ package com.example.TestDB.model;
 						this.name_company = name_company;
 					}
 
-					public Timestamp getS_date() {
+					public Date getS_date() {
 						return s_date;
 					}
 
-					public void setS_date(Timestamp s_date) {
+					public void setS_date(Date s_date) {
 						this.s_date = s_date;
 					}
 
-					public Timestamp getE_date() {
+					public Date getE_date() {
 						return e_date;
 					}
 
-					public void setE_date(Timestamp e_date) {
+					public void setE_date(Date e_date) {
 						this.e_date = e_date;
 					}
 

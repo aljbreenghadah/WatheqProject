@@ -1,6 +1,6 @@
 package com.example.TestDB.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import com.example.TestDB.model.Individual;
 
@@ -9,7 +9,7 @@ public class LanguageDTO {
 	 private String languge_id;
 	 private Individual NationalID; 
 	 private String languge_name;
-	 private Timestamp languge_date;
+	 private Date languge_date;
 	// private long languge_refrence_no;
 	 private String languge_attach;
 	 
@@ -18,7 +18,7 @@ public class LanguageDTO {
 	public LanguageDTO() {
 		super();
 	}
-	public LanguageDTO(long id, String languge_id, Individual NationalID, String languge_name, Timestamp languge_date,
+	public LanguageDTO(long id, String languge_id, Individual NationalID, String languge_name, Date languge_date,
 			String languge_attach) {
 		super();
 		this.id = id;
@@ -52,10 +52,10 @@ public class LanguageDTO {
 	public void setLanguge_name(String languge_name) {
 		this.languge_name = languge_name;
 	}
-	public Timestamp getLanguge_date() {
+	public Date getLanguge_date() {
 		return languge_date;
 	}
-	public void setLanguge_date(Timestamp languge_date) {
+	public void setLanguge_date(Date languge_date) {
 		this.languge_date = languge_date;
 	}
 	//public long getLanguge_refrence_no() {

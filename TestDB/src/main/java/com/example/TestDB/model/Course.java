@@ -1,6 +1,6 @@
 package com.example.TestDB.model;
 	import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,7 +13,8 @@ import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 import lombok.Builder;
-
+import lombok.NoArgsConstructor;
+ @NoArgsConstructor
 	@Entity
 	@Table(name = "course")
 	public class Course implements Serializable {
@@ -55,23 +56,19 @@ import lombok.Builder;
 
 		 @Column(name = "StartDate")
 		  @NotNull(message = "StartDate cannot be Empty ")
-		   private Timestamp StartDate;
+		   private Date StartDate;
 		   
 		   @Column(name = "EndDate")
-		   private Timestamp EndDate;
+		   private Date EndDate;
 		   
 		   
-		   
-		   
-			public Course() {
-			super();
-		}
+
 
 	@Builder
 	
 	
 	public Course(String courseID, Individual  NationalID, Education Eduid, Company cr, String nameCourse,
-			String addedBy, String nameInstittion, String courseAttch, Timestamp StartDate, Timestamp EndDate) {
+			String addedBy, String nameInstittion, String courseAttch, Date StartDate, Date EndDate) {
 		super();
 		this.courseID =courseID;
 		this.NationalID = NationalID;
@@ -143,19 +140,19 @@ import lombok.Builder;
 	  this.addedBy = addedBy;
 	 }
 
-	 public Timestamp getStartDate() {
+	 public Date getStartDate() {
 	  return StartDate;
 	 }
 
-	 public void setStartDate(Timestamp startDate) {
+	 public void setStartDate(Date startDate) {
 	  this.StartDate = startDate;
 	 }
 
-	 public Timestamp getEndDate() {
+	 public Date getEndDate() {
 	  return EndDate;
 	 }
 
-	 public void setEndDate(Timestamp endDate) {
+	 public void setEndDate(Date endDate) {
 	  this.EndDate = endDate;
 	 }  
 

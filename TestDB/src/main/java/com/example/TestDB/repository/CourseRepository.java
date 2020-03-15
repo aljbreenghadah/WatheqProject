@@ -1,6 +1,6 @@
 package com.example.TestDB.repository;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -16,7 +16,7 @@ import  com.example.TestDB.model.Course;
 @Repository
 @Transactional
 
-public interface CourseRepository extends CrudRepository<Course, Long>{
+public interface CourseRepository extends CrudRepository<Course, String>{
 	@Modifying
 	@Query("UPDATE Course course SET course.nameCourse =:nameCourse WHERE course.courseID = :courseID ")
 	void updatenameCourse(@Param("courseID") String courseID,@Param("nameCourse") String nameCourse );
@@ -32,11 +32,11 @@ public interface CourseRepository extends CrudRepository<Course, Long>{
 	
 	@Modifying
 	@Query("UPDATE Course course SET course.StartDate =:StartDate WHERE course.courseID = :courseID ")
-	void updateStartDate(@Param("courseID") String courseID,@Param("StartDate")  Timestamp StartDate );
+	void updateStartDate(@Param("courseID") String courseID,@Param("StartDate")  Date StartDate );
 	
 	@Modifying
 	@Query("UPDATE Course course SET course.EndDate =:EndDate WHERE course.courseID = :courseID ")
-	void updateEndDate(@Param("courseID") String courseID,@Param("EndDate")  Timestamp EndDate );
+	void updateEndDate(@Param("courseID") String courseID,@Param("EndDate")  Date EndDate );
 	
 	
 	

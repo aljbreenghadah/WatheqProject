@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 public class RecommendationService {
 	@Autowired
     private RecommendationRepository recommendationRepository;
-    private static final RecommendationMapperImp recommendationMapper = new RecommendationMapperImp();
+    private static final RecommendationMapperImp recommendationMapperImp = new RecommendationMapperImp();
     public RecommendationDTO createRecommendationDTO(RecommendationDTO recommendationDTO) {
       
     	Recommendation recommendation = Recommendation.builder()
@@ -34,7 +34,7 @@ public class RecommendationService {
 
                     .build();
     	Recommendation saveRecommendation = recommendationRepository.save(recommendation);
-            return recommendationMapper.domainToDto(saveRecommendation);
+            return recommendationMapperImp.domainToDto(saveRecommendation);
             
         }
 

@@ -12,7 +12,7 @@ import  com.example.TestDB.model.Experience;
 
 @Repository
 @Transactional
-public interface ExperienceRepository extends CrudRepository<Experience, Long>{
+public interface ExperienceRepository extends CrudRepository<Experience, String>{
 	@Modifying
 	@Query("UPDATE  Experience  experience SET  experience.e_position =:e_position WHERE  experience.Exp_id = :Exp_id ")
 	void updatee_position(@Param("Exp_id") String Exp_id,@Param("e_position") String e_position );

@@ -14,11 +14,10 @@ public class LanguageService {
 	
 	@Autowired
     private  languageRepository languageRepository;
-    private static final LanguageMapperImp languageMapper = new LanguageMapperImp();
+    private static final LanguageMapperImp languageMapperImp = new LanguageMapperImp();
     public LanguageDTO createLanguageDTO(LanguageDTO languageDTO) {
       
     	Language language = Language.builder()
-                    .id(languageDTO.getId())
                     .languge_ID(languageDTO.getLanguge_id())
                     .NationalID(languageDTO.getNationalID())
                     .languge_name(languageDTO.getLanguge_name())
@@ -30,7 +29,7 @@ public class LanguageService {
 
                     .build();
     	Language saveLanguage = languageRepository.save(language);
-            return languageMapper.domainToDto(saveLanguage);
+            return languageMapperImp.domainToDto(saveLanguage);
             
         }
 }

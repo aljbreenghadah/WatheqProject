@@ -1,6 +1,6 @@
 package com.example.TestDB.repository;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -22,7 +22,7 @@ public interface languageRepository extends CrudRepository<Language, Long>{
 	
 	@Modifying
 	@Query("UPDATE  Language  language SET  language.languge_date =:languge_date WHERE  language.languge_ID =:languge_ID ")
-	void updatelanguge_date(@Param("languge_ID") String languge_ID,@Param("languge_date") Timestamp languge_date);
+	void updatelanguge_date(@Param("languge_ID") String languge_ID,@Param("languge_date") Date languge_date);
 	
 	@Modifying
 	@Query("UPDATE  Language  language SET  language.languge_attach =:languge_attach WHERE  language.languge_ID =:languge_ID ")

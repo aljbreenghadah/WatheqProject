@@ -2,7 +2,6 @@ package com.example.TestDB.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.TestDB.dto.CourseDTO;
 import com.example.TestDB.mapperImp.CourseMapperImp;
 import com.example.TestDB.model.Course;
@@ -17,7 +16,7 @@ import lombok.AllArgsConstructor;
 public class courseService {
 	@Autowired
     private CourseRepository courseRepository;
-    private static final CourseMapperImp courseMapper = new CourseMapperImp();
+    private static final CourseMapperImp courseMapperImp = new CourseMapperImp();
     public CourseDTO createcourseDTO(CourseDTO courseDTO) {
       
     	Course course = Course.builder()
@@ -40,5 +39,11 @@ public class courseService {
 
                     .build();
     	Course saveCourse = courseRepository.save(course);
-            return courseMapper.domainToDto(saveCourse);
-}}
+            return courseMapperImp.domainToDto(saveCourse);
+}
+    
+
+
+    }
+
+

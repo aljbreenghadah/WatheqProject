@@ -1,13 +1,13 @@
 package com.example.TestDB.controller;
 
-	import java.sql.Timestamp;
+
 
 	import org.springframework.beans.factory.annotation.Autowired;
 
     import org.springframework.web.bind.annotation.RequestMapping;
 	import org.springframework.web.bind.annotation.RestController;
     import com.example.TestDB.dto.IndividualDTO;
-    //   import com.example.TestDB.model.Individual;
+//      import com.example.TestDB.model.Individual;
 	//import com.example.TestDB.repository.IndividualRepository;
     import com.example.TestDB.service.IndividualService;
 
@@ -19,17 +19,69 @@ package com.example.TestDB.controller;
 
     	@Autowired
     	IndividualService individualService;
-    	IndividualDTO individualDTO = new IndividualDTO("ghadahDkhail@gmail.com","0502225926","alnarjes","50505","1095027437","Ghadah","Dkhail","aljbreen",true,"single","Reading",
-                Timestamp.valueOf("2021-02-20 00:00:00.123789"),"CS","URLL","Programming");
+    	IndividualDTO individualDTO = new IndividualDTO("aljbreenghadah@gmail.com","0551223421","sa","099","109527437","Gada","Dkhil","Ghaab",true,"i","g",null,"url","y","p");
 
-  @RequestMapping("/crs")
+  @RequestMapping("/creind")
   public String create() {
 
          individualService.createIndividualDTO(individualDTO);
          return "Create Done"; 
   }
 
-}
+  @RequestMapping("/updateAddressIndividual")
+  public IndividualDTO updateIndividual() throws Exception {
+	  return  individualService.updateAddressIndividualDTO("1","P");
+  }
+  
+  
+  @RequestMapping("/deleteIndividual")
+	public String deleteIndividual()throws Exception {
+			individualService.deleteIndividual("1095027437");
+			return "Deleted";
+	
+	}
+  @RequestMapping("/updateAttachmentsIndividual")
+  public IndividualDTO updateAttachmentsIndividual() throws Exception {
+	  return  individualService.updateAttachmentsIndividualDTO("1","url");
+  }
+  
+  @RequestMapping("/updateJOPIndividual")
+  public IndividualDTO updateJOPIndividual() throws Exception {
+	  return  individualService.updateJOPIndividualDTO("1","grammer");
+  }
+  
+  @RequestMapping("/updatePasswordIndividual")
+  public IndividualDTO updatePasswordIndividual() throws Exception {
+	  return  individualService.updatePasswordIndividualDTO("1","6");
+  }
+  
+  
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//  
+//  @RequestMapping("/find IndividualDTO")
+//  public String FindbyID() throws Exception {
+//	  
+//	  individualService.FindbyID("109090");
+//	  
+//	  return"Find IndividualDTO";
+//  }
+//  
+//  
+//}
 
     
     
